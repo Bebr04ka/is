@@ -53,3 +53,17 @@ p {
 p + p {
   margin: 12px 0;
 }
+
+.ui-component {
+  font-family: 'base', sans-serif;
+  
+  &:focus {
+    outline: 2px solid var(--color-primary-light);
+    outline-offset: 2px;
+  }
+  
+  &[data-disabled="true"] {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}

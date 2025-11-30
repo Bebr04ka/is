@@ -1,18 +1,30 @@
 {
   "name": "is-components-new",
-  "description": "Is components",
-  "version": "0.0.4",
+  "description": "Is components library with Vue 3 and TypeScript",
+  "version": "0.0.5",
   "license": "MIT",
   "type": "module",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/index/index.js",
+  "types": "dist/index/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index/index.js",
+      "types": "./dist/index/index.d.ts"
+    },
+    "./styles": {
+      "import": "./dist/styles/colors.scss",
+      "style": "./dist/styles/colors.scss"
+    }
+  },
   "sideEffects": false,
   "files": [
-    "dist/*"
+    "dist/**/*"
   ],
   "scripts": {
     "dev": "storybook dev -p 6006 --no-open",
     "build": "vite build && storybook build",
+    "build:lib": "vite build",
+    "prepublishOnly": "npm run build:lib",
     "lint": "eslint **/*.{js,ts,vue} && stylelint src/**/*.{scss,vue}",
     "ts": "vue-tsc --noEmit"
   },
@@ -57,10 +69,22 @@
     "vue-tsc": "3.0.6"
   },
   "peerDependencies": {
-    "vue": "3.5.21"
+    "vue": "^3.5.21"
   },
   "engines": {
-    "npm": "11",
-    "node": "24"
+    "npm": ">=11",
+    "node": ">=24"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "components",
+    "ui",
+    "typescript",
+    "storybook"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dergunovs/is"
   }
 }
